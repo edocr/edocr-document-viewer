@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: edocr Document Viewer
-Plugin URI: http://edocr.com/edocr-document-viewer/
+Plugin URI: https://github.com/edocr/edocr-document-viewer
 Description: The edocr Document Viewer for Wordpress allows you to embed your documents on your WordPress site using our feature rich document viewer
 Author: edocr <info@edocr.com>
 Author URI: http://edocr.com/
