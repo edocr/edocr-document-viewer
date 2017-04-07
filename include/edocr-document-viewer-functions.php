@@ -5,12 +5,14 @@ Plugin URI: https://github.com/edocr/edocr-document-viewer
 Description: The edocr Document Viewer for Wordpress allows you to embed your documents on your WordPress site using our feature rich document viewer
 Author: edocr <info@edocr.com>
 Author URI: http://edocr.com/
-Version: 1.0
+Version: 1.0.1
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 */
+  if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
   function wp_edocr_shortcode ($atts) {
-    global $EDOCR_DEV;
+    global $EDOCR_DEV, $wp_edocr_embed_url, $wp_edocr_embed_url_dev;
     if (!function_exists('curl_version')) {
       $msg = 'Configuration Error: Missing PHP module: CURL';
       return wp_edocr_error_html($msg);
@@ -22,9 +24,9 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
       $guid = $atts['guid'];
       unset($atts['guid']);
       if ($EDOCR_DEV){
-        $url = 'https://dev.edocr.com/embed/' . $guid;
+        $url = $wp_edocr_embed_url_dev . $guid;
       } else {
-        $url = 'https://edocr.com/embed/' . $guid;
+        $url = $wp_edocr_embed_url . $guid;
       }
       if (!isset($atts['type'])) {
         $atts['type'] = 'viewer';
@@ -46,33 +48,22 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
   function wp_edocr_get_document ($url) {
     global $EDOCR_DEV;
     $timeout = 5;
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_HEADER, 0);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //Set curl to return the data instead of printing it to the browser.
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    if ($EDOCR_DEV) {
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    }
-    curl_setopt($ch, CURLOPT_URL, $url);
 
-    $data = curl_exec($ch);
-    if (!$data) {
-      $result = curl_getinfo($ch);
-      $err = 'Error: ' . $result['http_code'] . ' ' . curl_error($ch);
-
+    $response = wp_remote_get($url);
+    $body = wp_remote_retrieve_body($response);
+    $http_code = wp_remote_retrieve_response_code($response);
+    if ($http_code !== 200) {
+      $err = 'Error: ' . $http_code;
       return wp_edocr_error_html($err);
     } else {
-      $result = curl_getinfo($ch);
-      if ($result['http_code'] >= 399) {
-        $msg = '<h3>Error ' . $result['http_code'] . '</h3><br>We couldn\'t find the edocr.com document you requested. Please check your document GUID (aka. Document ID Code) and try again.';
+      if ($http_code >= 399) {
+        $msg = '<h3>Error ' . $http_code . '</h3><br>We couldn\'t find the edocr.com document you requested. Please check your document GUID (aka. Document ID Code) and try again.';
         if ($result['http_code'] == 403) {
-          $msg = '<h3>Error ' . $result['http_code'] . '</h3><br>Embedding the document specified has been disallowed by the document owner. Please try another document or contact the document owner and ask them to enable document embedding in their document settings';
+          $msg = '<h3>Error ' . $http_code . '</h3><br>Embedding the document specified has been disallowed by the document owner. Please try another document or contact the document owner and ask them to enable document embedding in their document settings';
         }
         return wp_edocr_error_html($msg);
       } else {
-        return $data;
+        return $body;
       }
     }
   }
@@ -83,7 +74,10 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
   }
 
   function wp_edocr_options_page_html(){
-    require(ABSPATH . 'wp-content/plugins/edocr-document-viewer/edocr-document-viewer-options.php');
+    global $wp_edocr_plugin_url, $wp_edocr_service_agreement_url,
+      $wp_edocr_account_creation_url, $wp_edocr_homepage_url,
+      $wp_edocr_search_url, $wp_edocr_support_email;
+    require('edocr-document-viewer-options.php');
 
   }
 
