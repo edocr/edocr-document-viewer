@@ -3,21 +3,17 @@ Contributors: edocr
 Tags: document, viewer, cloud, document viewer, embed, pdf, doc, ppt, xls, cad, eml, msg, jpg, png, tif, bmp, gif
 Requires at least: 4.0
 Tested up to: 4.7
-License: GPLv3
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Stable tag: trunk
+License: MIT
+License URI: https://raw.githubusercontent.com/edocr/edocr-document-viewer/master/LICENSE
 
 edocr Document Viewer is a document viewer that displays dozens of different file types on your WordPress website, without any additional software.
 
 == Description ==
 
-edocr Document Viewer for WordPress is a document viewer that enables you easily
-embed documents on your WordPress site. Allow everyone that visits your website
-to view your site’s content. edocr Document Viewer is a HTML5 document viewer
-that enables you to display dozens of different document and image files on your
-website without worrying about whether your visitors have the software to view
-them or without having to convert it to another format first and risk degrading
-its quality. edocr Document Viewer supports dozens of file types,
-including DOC, PDF, PPT, XLS, CAD, GoogleDocs, and more.
+edocr Document Viewer for WordPress is a document viewer that enables you easily embed documents on your WordPress site. Allow everyone that visits your website to view your site’s content.
+
+edocr Document Viewer is a HTML5 document viewer that enables you to display dozens of different document and image files on your website without worrying about whether your visitors have the software to view them or without having to convert it to another format first and risk degrading its quality. edocr Document Viewer supports dozens of file types, including DOC, PDF, PPT, XLS, CAD, GoogleDocs, and more.
 
 == Installation ==
 
@@ -75,8 +71,14 @@ Once you save and view your post, you should now have an embedded instance of th
 1. Add edocr Document Viewer to a page via shortcode in the content editor
 
 == Changelog ==
+1.0.3
+* Changed license from GPLv3 to MIT
+
 1.0.2 Initial Version
 
 == Upgrade Notice ==
+= 1.0.3 =
+* Changed license from GPLv3 to MIT
+
 = 1.0.2 =
 Initial Version
