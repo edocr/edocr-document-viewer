@@ -3,7 +3,6 @@ Contributors: edocr
 Tags: document, viewer, cloud, document viewer, embed, pdf, doc, ppt, xls, cad, eml, msg, jpg, png, tif, bmp, gif
 Requires at least: 4.0
 Tested up to: 4.7
-Stable tag: 1.0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -76,8 +75,8 @@ Once you save and view your post, you should now have an embedded instance of th
 1. Add edocr Document Viewer to a page via shortcode in the content editor
 
 == Changelog ==
-1.0.1 Initial Version
+1.0.2 Initial Version
 
 == Upgrade Notice ==
-= 1.0.1 =
+= 1.0.2 =
 Initial Version
