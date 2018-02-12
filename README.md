@@ -11,19 +11,19 @@ Try it today for free.
 This plugin adds a shortcode which alows you to embed documents on your page or post that are hosted on edocr.com. For example, if you have a document with the following URL:
 
 ```
-https://www.edocr.com/v/aqegexna/edocr-service-agreement
+https://www.edocr.com/v/ewzqqwmv/edocr-service-agreement
 ```
 
 You'll need to find the documents unique identifier. It's the 8-letter part of the URL directly after the '/v/'. In this example, the unique document identifier (or GUID) is:
 
 ```
-aqegexna
+ewzqqwmv
 ```
 
 Now simply take your document GUID and use it with our shortcode to add a document to your post or page like this:
 
 ```
-[edocr guid=aqegexna]
+[edocr guid=ewzqqwmv]
 ```
 
 Once you save and view your post, you should now have an embedded instance of the document on your WordPress site. You can embed any unrestricted edocr document on the site.
@@ -47,7 +47,7 @@ To embed new documents, simply [sign up](https://www.edocr.com/account/create) f
 Example:
 
 ```
-[edocr guid=aqegexna]
+[edocr guid=ewzqqwmv]
 ```
 
 **type=(legacy/viewer/thumbnail)**
@@ -58,8 +58,8 @@ Example:
 Example:
 
 ```
-[edocr guid=aqegexna type=viewer]
-[edocr guid=aqegexna type=thumbnail]
+[edocr guid=ewzqqwmv type=viewer]
+[edocr guid=ewzqqwmv type=thumbnail]
 ```
 
 **autofit=1**
@@ -70,8 +70,8 @@ Example:
 Example:
 
 ```
-[edocr guid=aqegexna type=viewer autofit=1]
-[edocr guid=aqegexna type=thumbnail autofit=1]
+[edocr guid=ewzqqwmv type=viewer autofit=1]
+[edocr guid=ewzqqwmv type=thumbnail autofit=1]
 ```
 
 **width=x**
@@ -86,7 +86,7 @@ Example:
 Example:
 
 ```
-[edocr guid=aqegexna type=viewer width=640 height=480]
+[edocr guid=ewzqqwmv type=viewer width=640 height=480]
 ```
 
 **option=(profile/collection)**
