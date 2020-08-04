@@ -5,7 +5,7 @@ Plugin URI: https://github.com/edocr/edocr-document-viewer
 Description: The edocr Document Viewer for Wordpress allows you to embed your documents on your WordPress site using our feature rich document viewer
 Author: edocr <info@edocr.com>
 Author URI: http://edocr.com
-Version: 1.0.3
+Version: 1.0.4
 License: MIT
 License URI: https://raw.githubusercontent.com/edocr/edocr-document-viewer/master/LICENSE
 */
