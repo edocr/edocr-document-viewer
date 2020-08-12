@@ -2,7 +2,7 @@
 Contributors: edocr
 Tags: document, viewer, cloud, document viewer, embed, pdf, doc, ppt, xls, cad, eml, msg, jpg, png, tif, bmp, gif
 Requires at least: 4.0
-Tested up to: 5.6
+Tested up to: 5.5
 Stable tag: trunk
 License: MIT
 License URI: https://raw.githubusercontent.com/edocr/edocr-document-viewer/master/LICENSE
